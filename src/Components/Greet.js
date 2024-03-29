@@ -2,10 +2,10 @@
 
 import React from 'react';
 
-function Greet () {
+function Greet (props) {
     return (
         <div>
-            <h1>Hello World</h1>
+            <h1>Welcome {props.firstName} and {props.lastName}</h1>
         </div>
     )
 }
