@@ -2,15 +2,27 @@ import logo from './logo.svg';
 import './App.css';
 import Greet from './Components/Greet';
 
+const employee ={
+  name:"John",
+  age:30,
+  salary:100000,
+  address:{
+    city:"Bangalore",
+    state:"Karnataka",
+    country:"India"
+  },
+}
+
+
 
 function App() {
   return (
     <div className="App">
-     <Greet firstName="Mahesh" lastName="Kumar"/>
-     <Greet firstName="Senthil" lastName="Kumar"/>
-     <Greet firstName="Pramod" lastName="Kumar"/>
-     <Greet firstName="Sushma" lastName="Kumari"/>
-     <Greet firstName="Collins" lastName="Kumar"/>
+     <Greet firstName="Mahesh" lastName="Kumar" data={employee}/>
+     <Greet firstName="Senthil" lastName="Kumar"  data={employee}/>
+     <Greet firstName="Pramod" lastName="Kumar" data={employee}/>
+     <Greet firstName="Sushma" lastName="Kumari" data={employee}/>
+     <Greet firstName="Collins" lastName="Kumar" data={employee}/>
 
     </div>
   );
