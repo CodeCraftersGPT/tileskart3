@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Greet from './Components/Greet';
+import GreetClass from './Components/GreetClass';
+
 
 const employee ={
   name:"John",
@@ -23,6 +25,7 @@ function App() {
      <Greet firstName="Pramod" lastName="Kumar" data={employee}/>
      <Greet firstName="Sushma" lastName="Kumari" data={employee}/>
      <Greet firstName="Collins" lastName="Kumar" data={employee}/>
+      <GreetClass firstName="Mahesh" lastName="Kumar" data={employee}/>
 
     </div>
   );
