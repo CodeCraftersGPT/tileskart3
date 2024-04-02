@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Greet from './Components/Greet';
 import GreetClass from './Components/GreetClass';
-
+import Counter from './Components/Counter';
 
 const employee ={
   name:"John",
@@ -20,13 +20,13 @@ const employee ={
 function App() {
   return (
     <div className="App">
-     <Greet firstName="Mahesh" lastName="Kumar" data={employee}/>
+      <Counter/>
+     {/* <Greet firstName="Mahesh" lastName="Kumar" data={employee}/>
      <Greet firstName="Senthil" lastName="Kumar"  data={employee}/>
      <Greet firstName="Pramod" lastName="Kumar" data={employee}/>
      <Greet firstName="Sushma" lastName="Kumari" data={employee}/>
      <Greet firstName="Collins" lastName="Kumar" data={employee}/>
-      <GreetClass firstName="Mahesh" lastName="Kumar" data={employee}/>
-
+     <GreetClass firstName="Mahesh" lastName="Kumar" data={employee}/> */}
     </div>
   );
 }
