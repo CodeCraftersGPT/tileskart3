@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <User/>
-      {/* <Counter/> */}
+      <Counter/>
      {/* <Greet firstName="Mahesh" lastName="Kumar" data={employee}/>
      <Greet firstName="Senthil" lastName="Kumar"  data={employee}/>
      <Greet firstName="Pramod" lastName="Kumar" data={employee}/>
