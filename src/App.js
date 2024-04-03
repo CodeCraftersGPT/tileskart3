@@ -3,6 +3,7 @@ import './App.css';
 import Greet from './Components/Greet';
 import GreetClass from './Components/GreetClass';
 import Counter from './Components/Counter';
+import User from './Components/useStateObject';
 
 const employee ={
   name:"John",
@@ -20,7 +21,8 @@ const employee ={
 function App() {
   return (
     <div className="App">
-      <Counter/>
+      <User/>
+      {/* <Counter/> */}
      {/* <Greet firstName="Mahesh" lastName="Kumar" data={employee}/>
      <Greet firstName="Senthil" lastName="Kumar"  data={employee}/>
      <Greet firstName="Pramod" lastName="Kumar" data={employee}/>
