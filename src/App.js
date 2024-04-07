@@ -23,11 +23,11 @@ const employee ={
 function App() {
   return (
     <div className="App" style={{ display: 'flex', justifyContent: 'center' }} >
-      <BookList/>
+      {/* <BookList/> */}
     
       {/* <ConditionalRendering/> */}
-      {/* <User/>
-      <Counter/> */}
+      {/* <User/> */}
+      <Counter/>
      {/* <Greet firstName="Mahesh" lastName="Kumar" data={employee}/>
      <Greet firstName="Senthil" lastName="Kumar"  data={employee}/>
      <Greet firstName="Pramod" lastName="Kumar" data={employee}/>
