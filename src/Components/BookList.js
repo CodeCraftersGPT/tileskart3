@@ -1,7 +1,9 @@
 import React  from "react";
+import { useState } from "react";
+
 
 function BookList() {
-    const books = [
+    const booksArray = [
         {
             id: 1,
             title: "Outliers",
@@ -34,10 +36,34 @@ function BookList() {
           }
     ]
 
+    const [books, setBooks] = useState(booksArray);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const book = {
+            id: books.length + 1,
+            title: e.target.title.value,
+            author: e.target.author.value,
+            price: e.target.price.value
+        }
+
+        setBooks([...books, book]);
+    }
+
     // display the books in table format
 
     return (
-        <div >
+        <div>
+            <form onSubmit={handleSubmit}>
+                <input type="text" placeholder="Title" name="title" required/>
+                <input type="text" placeholder="Author" name="author" required/>
+                <input type="number" placeholder="Price" name="price" required/>
+                <button type="submit">Add Book</button>
+            </form>
+
+
+        
+        <div>
             <h1>Book List</h1>
             <table >
                 <thead>
@@ -59,6 +85,7 @@ function BookList() {
                     ))}
                 </tbody>
             </table>
+        </div>
         </div>
     )
 }
