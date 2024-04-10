@@ -6,6 +6,8 @@ import Counter from './Components/Counter';
 import User from './Components/useStateObject';
 import ConditionalRendering from './Components/ConditionalRendering';
 import BookList from './Components/BookList';
+import CounterClass from './Components/CounterClass';
+
 
 const employee ={
   name:"John",
@@ -23,11 +25,12 @@ const employee ={
 function App() {
   return (
     <div className="App" style={{ display: 'flex', justifyContent: 'center' }} >
+      <CounterClass/>
       {/* <BookList/> */}
     
       {/* <ConditionalRendering/> */}
       {/* <User/> */}
-      <Counter/>
+      {/* <Counter/> */}
      {/* <Greet firstName="Mahesh" lastName="Kumar" data={employee}/>
      <Greet firstName="Senthil" lastName="Kumar"  data={employee}/>
      <Greet firstName="Pramod" lastName="Kumar" data={employee}/>
