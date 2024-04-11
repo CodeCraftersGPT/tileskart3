@@ -25,14 +25,14 @@ const employee ={
 function App() {
   return (
     <div className="App" style={{ display: 'flex', justifyContent: 'center' }} >
-      <UserFormLS/>
+      {/* <UserFormLS/> */}
       {/* <LifeCycle/> */}
       {/* <CounterClass/> */}
       {/* <BookList/> */}
     
       {/* <ConditionalRendering/> */}
       {/* <User/> */}
-      {/* <Counter/> */}
+      <Counter/>
      {/* <Greet firstName="Mahesh" lastName="Kumar" data={employee}/>
      <Greet firstName="Senthil" lastName="Kumar"  data={employee}/>
      <Greet firstName="Pramod" lastName="Kumar" data={employee}/>
