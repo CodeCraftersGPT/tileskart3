@@ -9,6 +9,8 @@ import BookList from './Components/BookList';
 import CounterClass from './Components/CounterClass';
 import LifeCycle from './Components/LifeCycle';
 import UserFormLS from './Components/WithLiftStateUp/UserFormLS';
+import PostList from './Components/FetchAPI/PostList';
+
 const employee ={
   name:"John",
   age:30,
@@ -25,6 +27,7 @@ const employee ={
 function App() {
   return (
     <div className="App" style={{ display: 'flex', justifyContent: 'center' }} >
+      <PostList/>
       {/* <UserFormLS/> */}
       {/* <LifeCycle/> */}
       {/* <CounterClass/> */}
@@ -32,7 +35,7 @@ function App() {
     
       {/* <ConditionalRendering/> */}
       {/* <User/> */}
-      <Counter/>
+      {/* <Counter/> */}
      {/* <Greet firstName="Mahesh" lastName="Kumar" data={employee}/>
      <Greet firstName="Senthil" lastName="Kumar"  data={employee}/>
      <Greet firstName="Pramod" lastName="Kumar" data={employee}/>
