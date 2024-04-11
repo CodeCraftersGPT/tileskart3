@@ -8,21 +8,18 @@ class CounterClass extends Component {
       count: 0,
     };
   }
-
   // Increment count method defined as an arrow function
   incrementCount = () => {
     this.setState(prevState => ({
       count: prevState.count + 1,
     }));
   };
-
   // Decrement count method defined as an arrow function
   decrementCount = () => {
     this.setState(prevState => ({
       count: prevState.count - 1,
     }));
   };
-
   render() {
     return (
       <div>
