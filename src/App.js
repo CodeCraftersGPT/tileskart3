@@ -8,9 +8,7 @@ import ConditionalRendering from './Components/ConditionalRendering';
 import BookList from './Components/BookList';
 import CounterClass from './Components/CounterClass';
 import LifeCycle from './Components/LifeCycle';
-
-
-
+import UserFormLS from './Components/WithLiftStateUp/UserFormLS';
 const employee ={
   name:"John",
   age:30,
@@ -27,7 +25,8 @@ const employee ={
 function App() {
   return (
     <div className="App" style={{ display: 'flex', justifyContent: 'center' }} >
-      <LifeCycle/>
+      <UserFormLS/>
+      {/* <LifeCycle/> */}
       {/* <CounterClass/> */}
       {/* <BookList/> */}
     
