@@ -1,19 +1,30 @@
 // create postlist component consuming the API from jsonplaceholder.typicode.com/posts
 // and display the list of posts in the browser
-
-
-import React, { Component } from 'react';
 import { useEffect,useState } from 'react';
-
 
 function PostList() {
     const [posts,setPosts] = useState([]);
+    const [error,setError] = useState('');
     useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(response => response.json())
+        fetch('https://jsonplaceholder.typicode.com/posts1')
+        .then((response) => 
+        {
+            if(response.ok){
+                return response.json();
+            }
+            throw new Error('Something went wrong');
+        })
         .then(data => setPosts(data))
+        .catch(error => {
+            setError('Something went wrong');
+            console.log(error);
+        })
     },[])
 
+
+    if(error){
+        return <div>{error}</div>
+    }
 
 
     return (

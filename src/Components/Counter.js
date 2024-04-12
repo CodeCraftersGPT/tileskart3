@@ -7,7 +7,6 @@ function Counter(){
 
     useEffect(()=>{
         console.log('component is mounted');
-
         return ()=>{
             console.log('component is unmounted');
         }
