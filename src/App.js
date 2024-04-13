@@ -11,6 +11,7 @@ import LifeCycle from './Components/LifeCycle';
 import UserFormLS from './Components/WithLiftStateUp/UserFormLS';
 import PostList from './Components/FetchAPI/PostList';
 import PostListAxios from './Components/FetchAPI/PostListAxios';
+import MyComponent from './Components/Styles/MyComponent';
 
 
 const employee ={
@@ -29,7 +30,9 @@ const employee ={
 function App() {
   return (
     <div className="App" style={{ display: 'flex', justifyContent: 'center' }} >
-      <PostListAxios/>
+      <MyComponent/>
+      
+   
       {/* <PostList/> */}
       {/* <UserFormLS/> */}
       {/* <LifeCycle/> */}
