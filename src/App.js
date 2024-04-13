@@ -10,6 +10,8 @@ import CounterClass from './Components/CounterClass';
 import LifeCycle from './Components/LifeCycle';
 import UserFormLS from './Components/WithLiftStateUp/UserFormLS';
 import PostList from './Components/FetchAPI/PostList';
+import PostListAxios from './Components/FetchAPI/PostListAxios';
+
 
 const employee ={
   name:"John",
@@ -27,7 +29,8 @@ const employee ={
 function App() {
   return (
     <div className="App" style={{ display: 'flex', justifyContent: 'center' }} >
-      <PostList/>
+      <PostListAxios/>
+      {/* <PostList/> */}
       {/* <UserFormLS/> */}
       {/* <LifeCycle/> */}
       {/* <CounterClass/> */}
