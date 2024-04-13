@@ -12,6 +12,7 @@ import UserFormLS from './Components/WithLiftStateUp/UserFormLS';
 import PostList from './Components/FetchAPI/PostList';
 import PostListAxios from './Components/FetchAPI/PostListAxios';
 import MyComponent from './Components/Styles/MyComponent';
+import MyComponent1 from './Components/Styles/MyComponent1';
 
 
 const employee ={
@@ -31,6 +32,7 @@ function App() {
   return (
     <div className="App" style={{ display: 'flex', justifyContent: 'center' }} >
       <MyComponent/>
+      <MyComponent1/>
       
    
       {/* <PostList/> */}
