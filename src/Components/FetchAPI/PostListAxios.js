@@ -1,29 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
 function PostListAxios() {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
-
   useEffect(() => {
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
-            const data = await response.data;
-            setLoading(false);
-          
-            setPosts(data);
-        } catch (error) {
-            setLoading(false);
-            setError("Error while fetching data");
-            console.error(error);
-        }
-    }
-    fetchData();
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+      .then(response => {
+        console.log(response);
+        setPosts(response.data);
+        setLoading(false);
+        setError("");
+      })
+      .catch(error => {
+        console.log(error);
+        setPosts([]);
+        setLoading(false);
+        setError("Something went wrong!");
+      });
+  
   }, []);
 
     if (loading) return <div>Loading...</div>;
