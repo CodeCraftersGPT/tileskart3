@@ -8,23 +8,23 @@ function PostList() {
     const [error,setError] = useState('');
     const [loading,setLoading] = useState(true);
     useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/posts')
-        .then((response) => 
-        {
-            if(response.ok){
-                return response.json();
+
+        const fetchData = async () => {
+            try{
+                const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+                if(!response.ok){
+                    throw new Error('Something went wrong');
+                }
+                const data = await response.json();
+                setPosts(data);
+                setLoading(false);
             }
-            throw new Error('Something went wrong');
-        })
-        .then(data =>{
-            setPosts(data);
-            setLoading(false);
-        } )
-        .catch(error => {
-            setError('Something went wrong');
-            setLoading(false);
-            console.log(error);
-        })
+            catch(err){
+                setError(err.message);
+                setLoading(false);
+            }
+        }
+        fetchData();
     },[])
 
 
