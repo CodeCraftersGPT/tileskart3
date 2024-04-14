@@ -13,6 +13,7 @@ import PostList from './Components/FetchAPI/PostList';
 import PostListAxios from './Components/FetchAPI/PostListAxios';
 import MyComponent from './Components/Styles/MyComponent';
 import MyComponent1 from './Components/Styles/MyComponent1';
+import Login from './Components/Styles/Login';
 
 
 const employee ={
@@ -31,8 +32,11 @@ const employee ={
 function App() {
   return (
     <div className="App" style={{ display: 'flex', justifyContent: 'center' }} >
-      <MyComponent/>
+      <Login/>
       <MyComponent1/>
+
+      {/* <MyComponent/>
+      <MyComponent1/> */}
       
    
       {/* <PostList/> */}
