@@ -5,13 +5,15 @@ function Registration() {
     const [user, setUser] = useState({
         name: '',
         email: '',
-        phone: ''
+        phone: '',
+        password: ''
     });
 
     const [errors, setErrors] = useState({
         name: '',
         email: '',
-        phone: ''
+        phone: '',
+        password: ''
     });
 
 
@@ -36,34 +38,55 @@ function Registration() {
         }));
     };
 
+    const handlePasswordChange = (event) => {
+        setUser(prevState => ({
+            ...prevState,
+            password: event.target.value
+        }));
+    };
+    
+
     const handleSubmit = (event) => {
        
         event.preventDefault();
-       
-        if (user.name.trim() === '') {
-           setErrors(prevState => ({
-                ...prevState,
-                name: 'Name is required'
-              }));
 
+        const newErrors = {}
+
+        if (user.name.trim() === '') {
+            newErrors.name = 'Name is required';
         }
 
         if (user.email.trim() === '') {
-          setErrors(prevState => ({
-                ...prevState,
-                email: 'Email is required'
-            }));
+            newErrors.email = 'Email is required';
+        }
+        else if (!/\S+@\S+\.\S+/.test(user.email)) {
+            newErrors.email = 'Email is invalid';
         }
 
         if (user.phone.trim() === '') {
-            setErrors(prevState => ({
-                ...prevState,
-                phone: 'Phone is required'
-            }));
+            newErrors.phone = 'Phone is required';
         }
+        else if (!/^\d{10}$/.test(user.phone)) {
+            newErrors.phone = 'Phone is invalid';
+        }
+
+        if (user.password.trim() === '') {
+            newErrors.password = 'Password is required';
+        }
+        else if (!/(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}/.test(user.password)) {
+            newErrors.password = 'Password should be atleast 8 characters long and should contain atleast one number and one special character';
+        }
+        setErrors(newErrors);
+            
+     
         if (Object.keys(errors).length > 0) {
             return false;
         }
+        else
+        {
+            alert("Registration Successful");
+        }
+
     };
        
     return (
@@ -104,6 +127,18 @@ function Registration() {
                 />
                 {errors.phone && <p className={styles.error}>{errors.phone}</p>}
             </div>
+            <div className={styles.inputGroup}>
+                <label htmlFor="password" className={styles.label}>Password:</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    className={styles.input}
+                    value={user.password}
+                    onChange={handlePasswordChange}
+                />
+            </div>
+                {errors.password && <p className={styles.error}>{errors.password}</p>}
             <button type="submit" className={styles.submitButton}>Register</button>
         </form>
     );

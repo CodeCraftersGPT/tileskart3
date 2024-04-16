@@ -68,3 +68,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### 34 registration form with custom validations
+
+<!-- 
+// update the registration component to include password
+// add a new input field for password
+// add a new state variable for password
+// add a new error state variable for password
+// handleSubmit function to with newErrors object to update the validations for email to be valid email ,phone and password
+//password should be atleast 8 characters long and should contain atleast one number and one special character -->
