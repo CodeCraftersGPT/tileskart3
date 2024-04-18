@@ -16,76 +16,63 @@ function Registration() {
         password: ''
     });
 
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        // update the user state with prevState
 
-    const handleNameChange = (event) => {
-        setUser(prevState => ({
+        setUser((prevState) => ({
             ...prevState,
-            name: event.target.value
+            [name]: value
         }));
-    };
 
-    const handleEmailChange = (event) => {
-        setUser(prevState => ({
-            ...prevState,
-            email: event.target.value
-        }));
-    };
+        // validate the input fields
+        validateFields(name, value);
+       
+    }   
 
-    const handlePhoneChange = (event) => {
-        setUser(prevState => ({
-            ...prevState,
-            phone: event.target.value
-        }));
-    };
+    const validateFields = (name, value) => {
+        let errorMessage = '';
 
-    const handlePasswordChange = (event) => {
-        setUser(prevState => ({
+        switch (name) {
+            case 'name':
+                errorMessage = value.length < 3 ? 'Name must be at least 3 characters long' : '';
+                break;
+            case 'email':
+                errorMessage = value.trim() ?
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Invalid email format.' :
+                'Email is required';
+                break;
+            case 'phone':
+                errorMessage = value.trim() ?
+                /^\d{10}$/.test(value) ? '' : 'Phone number must be a valid Indian phone number (10 digits).' :
+                'Phone is required';
+                break;
+            case 'password':
+                errorMessage = value.trim() ?
+                /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}/.test(value) ? '' : 'Password must be at least 8 characters long and include at least one number, one uppercase letter, and one special character.' :
+                'Password is required';
+                break;
+            default:
+                break;
+        }
+
+        setErrors((prevState) => ({ 
             ...prevState,
-            password: event.target.value
+            [name]: errorMessage
         }));
-    };
-    
+
+    }
+
+
+
 
     const handleSubmit = (event) => {
-       
         event.preventDefault();
 
-        const newErrors = {}
-
-        if (user.name.trim() === '') {
-            newErrors.name = 'Name is required';
-        }
-
-        if (user.email.trim() === '') {
-            newErrors.email = 'Email is required';
-        }
-        else if (!/\S+@\S+\.\S+/.test(user.email)) {
-            newErrors.email = 'Email is invalid';
-        }
-
-        if (user.phone.trim() === '') {
-            newErrors.phone = 'Phone is required';
-        }
-        else if (!/^\d{10}$/.test(user.phone)) {
-            newErrors.phone = 'Phone is invalid';
-        }
-
-        if (user.password.trim() === '') {
-            newErrors.password = 'Password is required';
-        }
-        else if (!/(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}/.test(user.password)) {
-            newErrors.password = 'Password should be atleast 8 characters long and should contain atleast one number and one special character';
-        }
-        setErrors(newErrors);
-            
-     
-        if (Object.keys(errors).length > 0) {
-            return false;
-        }
-        else
-        {
-            alert("Registration Successful");
-        }
+        // for each field in state call validate method.
+        Object.keys(user).forEach((key) => {
+            validateFields(key, user[key]);
+        });
 
     };
        
@@ -99,7 +86,7 @@ function Registration() {
                     name="name"
                     className={styles.input}
                     value={user.name}
-                    onChange={handleNameChange}
+                    onChange={handleChange}
                 />
                 {errors.name && <p className={styles.error}>{errors.name}</p>}
             </div>
@@ -111,7 +98,7 @@ function Registration() {
                     name="email"
                     className={styles.input}
                     value={user.email}
-                    onChange={handleEmailChange}
+                    onChange={handleChange}
                 />
                 {errors.email && <p className={styles.error}>{errors.email}</p>}
             </div>
@@ -123,7 +110,7 @@ function Registration() {
                     name="phone"
                     className={styles.input}
                     value={user.phone}
-                    onChange={handlePhoneChange}
+                    onChange={handleChange}
                 />
                 {errors.phone && <p className={styles.error}>{errors.phone}</p>}
             </div>
@@ -135,7 +122,7 @@ function Registration() {
                     name="password"
                     className={styles.input}
                     value={user.password}
-                    onChange={handlePasswordChange}
+                    onChange={handleChange}
                 />
             </div>
                 {errors.password && <p className={styles.error}>{errors.password}</p>}
