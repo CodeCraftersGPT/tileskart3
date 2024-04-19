@@ -7,12 +7,10 @@ import styles from './Registration.module.css';
 
 function Registration() {
 
-    const user = useRef({
-        name: '',
-        email: '',
-        phone: '',
-        password: ''
-    });
+   const nameRef = useRef(null);
+    const emailRef = useRef(null);
+    const phoneRef = useRef(null);
+    const passwordRef = useRef(null);
 
 
     const [errors, setErrors] = useState({
@@ -64,7 +62,14 @@ function Registration() {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        const newUser = user.current;
+        const newUser = {
+            name: nameRef.current.value,
+            email: emailRef.current.value,
+            phone: phoneRef.current.value,
+            password: passwordRef.current.value
+        };
+
+       
         Object.keys(newUser).forEach((key) => {
             validateFields(key, newUser[key]);
         });
@@ -80,9 +85,8 @@ function Registration() {
                     id="name"
                     name="name"
                     className={styles.input}
-                    value={user.name}
                     onChange={handleChange}
-                    ref={user.name}
+                    ref={nameRef}
                 />
                 {errors.name && <p className={styles.error}>{errors.name}</p>}
             </div>
@@ -93,9 +97,8 @@ function Registration() {
                     id="email"
                     name="email"
                     className={styles.input}
-                    value={user.email}
                     onChange={handleChange}
-                    ref={user.email}
+                    ref={emailRef}
                 />
                 {errors.email && <p className={styles.error}>{errors.email}</p>}
             </div>
@@ -106,9 +109,9 @@ function Registration() {
                     id="phone"
                     name="phone"
                     className={styles.input}
-                    value={user.phone}
+                  
                     onChange={handleChange}
-                    ref={user.phone}
+                    ref={phoneRef}
                 />
                 {errors.phone && <p className={styles.error}>{errors.phone}</p>}
             </div>
@@ -119,9 +122,9 @@ function Registration() {
                     id="password"
                     name="password"
                     className={styles.input}
-                    value={user.password}
+                   
                     onChange={handleChange}
-                    ref={user.password}
+                    ref={passwordRef}
                 />
             </div>
                 {errors.password && <p className={styles.error}>{errors.password}</p>}
