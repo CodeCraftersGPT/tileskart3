@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
 import styles from './Registration.module.css';
+import axios from 'axios';
+
 
 // refactor the code to use useRef instaed of useState for the user object
 // change the input fields to use the ref object to get the value of the input fields
@@ -73,6 +75,21 @@ function Registration() {
         Object.keys(newUser).forEach((key) => {
             validateFields(key, newUser[key]);
         });
+
+        // post this user information to the server using axios
+        // post user api available at http://localhost:5000/api/users
+
+        axios.post('http://localhost:5000/api/users', newUser)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+
+
+
 
     };
        
