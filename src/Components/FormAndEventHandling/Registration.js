@@ -62,6 +62,26 @@ function Registration() {
         }));
 
     }
+
+    const getUserInfo = () => {
+       // fetch user information from the server using axios with the name entered in the name field
+
+        axios.get(`http://localhost:5000/api/users/${nameRef.current.value}`)
+
+            .then((response) => {
+                console.log(response.data);
+                // update the fields in the UO with the response data
+                emailRef.current.value = response.data.email;
+                phoneRef.current.value = response.data.phone;
+                passwordRef.current.value = response.data.password;
+            }
+            )
+            .catch((error) => {
+                console.log(error);
+            });
+
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const newUser = {
@@ -145,6 +165,7 @@ function Registration() {
                 />
             </div>
                 {errors.password && <p className={styles.error}>{errors.password}</p>}
+                <button type="button" className={styles.submitButton} onClick={getUserInfo}>GetUserInfo</button>
             <button type="submit" className={styles.submitButton}>Register</button>
         </form>
     );
