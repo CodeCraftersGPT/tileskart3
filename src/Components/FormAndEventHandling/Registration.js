@@ -82,6 +82,27 @@ function Registration() {
 
     }
 
+    const updateUserInfo = () => {
+        // update user information on the server using axios with the name entered in the name field
+
+        const updatedUser = {
+            email: emailRef.current.value,
+            phone: phoneRef.current.value,
+            password: passwordRef.current.value
+        };
+
+        axios.put(`http://localhost:5000/api/users/${nameRef.current.value}`, updatedUser)
+
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    }
+    
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const newUser = {
@@ -166,6 +187,7 @@ function Registration() {
             </div>
                 {errors.password && <p className={styles.error}>{errors.password}</p>}
                 <button type="button" className={styles.submitButton} onClick={getUserInfo}>GetUserInfo</button>
+                <button type="button" className={styles.submitButton} onClick={updateUserInfo}>UpdateUserInfo</button>
             <button type="submit" className={styles.submitButton}>Register</button>
         </form>
     );
