@@ -78,6 +78,9 @@ function Registration() {
             )
             .catch((error) => {
                 console.log(error);
+                emailRef.current.value = "";
+                phoneRef.current.value = "";
+                passwordRef.current.value = "";
             });
 
     }
@@ -101,6 +104,20 @@ function Registration() {
             });
 
     }
+
+    const deleteUserInfo = () => {
+        // delete user information on the server using axios with the name entered in the name field
+        axios.delete(`http://localhost:5000/api/users/${nameRef.current.value}`)
+
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    }
+
     
 
     const handleSubmit = (event) => {
@@ -188,6 +205,7 @@ function Registration() {
                 {errors.password && <p className={styles.error}>{errors.password}</p>}
                 <button type="button" className={styles.submitButton} onClick={getUserInfo}>GetUserInfo</button>
                 <button type="button" className={styles.submitButton} onClick={updateUserInfo}>UpdateUserInfo</button>
+                <button type="button" className={styles.submitButton} onClick={deleteUserInfo}>DeleteUserInfo</button>
             <button type="submit" className={styles.submitButton}>Register</button>
         </form>
     );
