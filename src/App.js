@@ -15,6 +15,9 @@ import MyComponent from './Components/Styles/MyComponent';
 import MyComponent1 from './Components/Styles/MyComponent1';
 import Login from './Components/Styles/Login';
 import Registration from './Components/FormAndEventHandling/Registration';
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+
+
 
 
 
@@ -34,7 +37,16 @@ const employee ={
 function App() {
   return (
     <div className="App" style={{ display: 'flex', justifyContent: 'center' }} >
-      <Registration/>
+
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/registration" element={<Registration/>}/>
+          <Route path="*" element={<Login/>}/>
+        </Routes>
+      </Router>
+
+      {/* <Registration/> */}
 
       {/* <MyComponent/>
       <MyComponent1/> */}
