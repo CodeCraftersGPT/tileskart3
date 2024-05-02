@@ -15,7 +15,9 @@ import MyComponent from './Components/Styles/MyComponent';
 import MyComponent1 from './Components/Styles/MyComponent1';
 import Login from './Components/Styles/Login';
 import Registration from './Components/FormAndEventHandling/Registration';
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+
+import Navigation from './Components/Routing/Navigation';
+import { BrowserRouter as Router, Routes,Route } from 'react-router-dom';
 
 
 
@@ -39,6 +41,7 @@ function App() {
     <div className="App" style={{ display: 'flex', justifyContent: 'center' }} >
 
       <Router>
+        <Navigation/>
         <Routes>
           <Route path="/login" element={<Login/>}/>
           <Route path="/registration" element={<Registration/>}/>
@@ -46,7 +49,8 @@ function App() {
         </Routes>
       </Router>
 
-      {/* <Registration/> */}
+
+  
 
       {/* <MyComponent/>
       <MyComponent1/> */}
