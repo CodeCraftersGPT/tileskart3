@@ -13,6 +13,8 @@ function Navigation() {
         <div >
             <NavLink to="/login" >Login</NavLink>
             <NavLink to="/registration" >Registration</NavLink>
+            <NavLink to="/products" >Products</NavLink>
+            <NavLink to="/orders" >Orders</NavLink>
         </div>
     )
 }

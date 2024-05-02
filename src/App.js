@@ -18,6 +18,8 @@ import Registration from './Components/FormAndEventHandling/Registration';
 
 import Navigation from './Components/Routing/Navigation';
 import { BrowserRouter as Router, Routes,Route } from 'react-router-dom';
+import Products from './Components/Routing/Products';
+import Orders from './Components/Routing/Orders';
 
 
 
@@ -45,7 +47,12 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login/>}/>
           <Route path="/registration" element={<Registration/>}/>
+          <Route path="/products" element={<Products/>}/>
+          <Route path="/orders" element={<Orders/>}/>
+          
           <Route path="*" element={<Login/>}/>
+
+
         </Routes>
       </Router>
 
