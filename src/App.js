@@ -20,9 +20,10 @@ import Navigation from './Components/Routing/Navigation';
 import { BrowserRouter as Router, Routes,Route } from 'react-router-dom';
 import Products from './Components/Routing/Products';
 import Orders from './Components/Routing/Orders';
-
-
-
+import ProductDetail from './Components/Routing/ProductDetail';
+import NewCars from './Components/Routing/NewCars';
+import OldCars from './Components/Routing/OldCars';
+import ProtectedComponentWrapper from './Components/Routing/ProtectedComponentWrapper';
 
 
 const employee ={
@@ -47,9 +48,15 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login/>}/>
           <Route path="/registration" element={<Registration/>}/>
-          <Route path="/products" element={<Products/>}/>
-          <Route path="/orders" element={<Orders/>}/>
-          
+          <Route path="/products" element={<Products/>}>
+            <Route path="newCars" element={<NewCars/>}/>
+            <Route path="oldCars" element={<OldCars/>}/>
+          </Route>
+          <Route path="/orders" element={ <ProtectedComponentWrapper>
+                <Orders />
+            </ProtectedComponentWrapper>
+}/>
+          <Route path="/product/:id/:name" element={<ProductDetail/>}/>
           <Route path="*" element={<Login/>}/>
 
 
